@@ -1,0 +1,1 @@
+export const renderstudent = (req, res)=>res.render("student/list")

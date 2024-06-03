@@ -1,9 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const { redirectToHomeIfLoggedIn,isNotLoggedIn} = require('../lib/auth');
+import { Router } from "express";
+// import auth from "./auth.routes.js";
+import index from "./index.routes.js";
+import auth from "./auth.routes.js"
+import student from "./students.routes.js"
+const router = Router();
 
-router.get('/',redirectToHomeIfLoggedIn, isNotLoggedIn, async (req, res) => {
-    res.render('index');
-});
-
-module.exports = router;
+router.use(index);
+router.use(auth)
+router.use(student)
+export default router;
+ 
