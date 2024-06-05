@@ -14,6 +14,7 @@ export const renderStudentsList = async (req, res) => {
   try {
     const students = await studentsModel.getStudent();
     res.render("students/list", { students });
+    console.log(students)
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

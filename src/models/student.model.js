@@ -45,7 +45,7 @@ const studentsModel = {
         sch.school_name,
         GROUP_CONCAT(DISTINCT eps.eps_description SEPARATOR ', ') AS eps_description,
         rt.regimen_description,
-        CASE WHEN s.image_student = b'1' THEN 'Yes' ELSE 'No' END AS has_image
+        s.image_student AS has_image
     FROM
         students s
     JOIN citys c ON s.city_id = c.city_id

@@ -5,6 +5,7 @@ const router = Router();
 
 router.post("/uploadimg",upload.single('image'), uploadImg)
 router.get("/",renderStudentsList);
+router.get("/uploadimg",renderStudentsList);
 
 
 

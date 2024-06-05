@@ -9,13 +9,11 @@
 
 
 
-
-
-  <h1>Upload Image</h1>
-  <form action="/uploadimg" method="post" enctype="multipart/form-data">
+  {{!-- <h1>Upload Image</h1>
+  <form action="/students/uploadimg" method="post" enctype="multipart/form-data">
     <input type="file" name="image" accept="image/*" required>
     <button type="submit">Upload</button>
-  </form>
+  </form> --}}
 
  
  <div></div>
@@ -28,6 +26,8 @@
                         <h3 class="card-title text-uppercase">
                             {{student_name}}
                         </h3>
+
+                        <img src="/uploads/{{has_image}}" alt="">
                     </a>
                     <p class="m-2">{{description}}</p>
                     <p class="text-muted">
