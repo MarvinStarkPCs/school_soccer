@@ -7,6 +7,6 @@ const router = Router();
 
 router.use(index);
 router.use(auth)
-router.use(student)
+router.use("/students",student)
 export default router;
  

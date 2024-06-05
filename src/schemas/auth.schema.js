@@ -32,7 +32,7 @@ export const signupSchema = z
     path: ["password2"],
   });
 
-export const signinSchema = z.object({
+export const resetPasswordSchema = z.object({
   email_signin: z
     .string({
       required_error: "Es necesario el email",
@@ -41,15 +41,17 @@ export const signinSchema = z.object({
       message: "El Email no es valido",
     }),
 });
-export const resetPasswordSchema = z.object({
-  email: z
+
+
+export const signinSchema = z.object({
+  username: z
     .string({
       required_error: "Es necesario el email",
     })
     .email({
       message: "El Email no es valido",
     }),
-  password: z
+    password: z
     .string({
       required_error: "Contraseña es Necesaria",
     })

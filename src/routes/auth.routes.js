@@ -18,9 +18,7 @@ import {
 const router = Router();
 // funciones get
 router.get("/signin", renderSignIn);
-router.post("/signin", validator(signinSchema), signIn);
-router.post("/signup", validator(signupSchema), signUp);
-
+router.post("/signin",  signIn)
 
 router.get("/logout",logout);
 

@@ -8,23 +8,26 @@ passport.use(
   "local.signin",
   new LocalStrategy(
     {
-      usernameField: "email_signin",
-      passwordField: "password_signin",
+    usernameField: 'username',
+    passwordField: 'password',
       passReqToCallback: true,
     },
-    async (req, email_signin, password_signin, done) => {
-      const [rows] = await pool.query("SELECT * FROM users WHERE email = ?", [
-        email_signin,
+    async (req, usernameField, passwordField, done) => {
+      console.log(usernameField)
+      console.log(passwordField)
+      const [rows] = await pool.query("SELECT * FROM users WHERE username = ?", [
+        usernameField,
       ]);
 
-      if (!rows.length)
-        return done(null, false, req.flash("error", "Usuario no Existe"));
+      if (!rows.length) return done(null, false, req.flash("error", "Usuario no Existe") );
 
       const user = rows[0];
-      const validPassword = await matchPassword(password_signin, user.password);
+      const validPassword = await matchPassword(passwordField, user.password);
 
       if (!validPassword) {
+        console.log("hola contarseña incorecta")
         req.flash("error", "Contraseña incorrecta");
+      
         return done(null, false);
       }
 

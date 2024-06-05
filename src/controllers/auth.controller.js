@@ -45,6 +45,8 @@ export const signIn = passport.authenticate("local.signin", {
 });
 
 
+// export const signIn = ()=> console.log("hola")
+
 
 export const logout = (req, res, next) => {
   req.logout(function (err) {

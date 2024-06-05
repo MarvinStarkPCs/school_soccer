@@ -1,7 +1,11 @@
 import { Router } from "express";
-import { renderstudent } from "../controllers/student.controller.js";
-
+import { renderstudent,renderStudentsList, uploadImg} from "../controllers/student.controller.js";
+import upload from "../middlewares/multerConfig.js";
 const router = Router();
-router.get("/students",renderstudent);
+
+router.post("/uploadimg",upload.single('image'), uploadImg)
+router.get("/",renderStudentsList);
+
+
 
 export default router

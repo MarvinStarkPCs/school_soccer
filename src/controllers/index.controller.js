@@ -6,8 +6,7 @@ if(result.length < 0) {
     console.error("Erro connection to database")
     return;
 }
-    
-
-
 console.log("connection success")
  }
+
+ export const renderIndex = (req, res) => res.render("index");
